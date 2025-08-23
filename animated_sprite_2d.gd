@@ -1,16 +1,18 @@
-extends AnimatedSprite2D
+extends Node2D
+
+@onready var sprite = $Sprite
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_left"):
-		play('talk')
+		sprite.play('talk')
 		await get_tree().create_timer(5).timeout
-		play("default")
+		sprite.play("default")
 	if Input.is_action_just_pressed("ui_right"):
-		play("die")
+		sprite.play("die")
 	if Input.is_action_just_pressed("ui_up"):
-		scale *= 2
+		scale *= 1.1
 	if Input.is_action_just_pressed("ui_down"):
-		scale /= 2
+		scale /= 1.1
 
 func _on_animation_finished() -> void:
-	play("default")
+	sprite.play("default")
