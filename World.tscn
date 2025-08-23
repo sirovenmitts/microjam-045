@@ -1,0 +1,149 @@
+[gd_scene load_steps=26 format=3 uid="uid://ditu0ml82vd3v"]
+
+[ext_resource type="Texture2D" uid="uid://ne7ac4qvbxya" path="res://Assets/Untitled_Artwork-2 2.png" id="1_eu7l1"]
+[ext_resource type="Texture2D" uid="uid://yv81jmvrlw3c" path="res://Assets/alleyway-in-seattle-washington.jpg" id="1_jyqkj"]
+[ext_resource type="Texture2D" uid="uid://nb1nldir8w3j" path="res://Assets/Untitled_Artwork-3 2.png" id="2_p1v5b"]
+[ext_resource type="Texture2D" uid="uid://cr7ivs7j5qtiw" path="res://Assets/Untitled_Artwork-4 2.png" id="3_wygdx"]
+[ext_resource type="Texture2D" uid="uid://qdvjj7h3c5sa" path="res://Assets/Untitled_Artwork-1 2.png" id="4_bah7m"]
+[ext_resource type="Texture2D" uid="uid://dn8qepehnr5at" path="res://Assets/Untitled_Artwork-5 2.png" id="5_fv4w7"]
+[ext_resource type="Script" uid="uid://biegj7sjk2sch" path="res://animated_sprite_2d.gd" id="6_p1v5b"]
+[ext_resource type="Texture2D" uid="uid://dvb87yv1hcm3i" path="res://Assets/Untitled_Artwork-1 3.png" id="7_5j71u"]
+[ext_resource type="Texture2D" uid="uid://b40ry71xw2dww" path="res://Assets/Untitled_Artwork-2 3.png" id="8_jyqkj"]
+[ext_resource type="Texture2D" uid="uid://c844lt3xsxcxx" path="res://Assets/Untitled_Artwork-3 3.png" id="9_ydbc3"]
+[ext_resource type="Texture2D" uid="uid://dbdgyqhqjdnu0" path="res://Assets/Untitled_Artwork-4 3.png" id="10_aj1ai"]
+[ext_resource type="Texture2D" uid="uid://bg4ka2y8mg4ce" path="res://Assets/Untitled_Artwork-5 3.png" id="11_d7dfr"]
+[ext_resource type="Texture2D" uid="uid://qmppppjmdivs" path="res://Assets/Untitled_Artwork-6.png" id="12_c2gv2"]
+[ext_resource type="Texture2D" uid="uid://dcoppjexwvyna" path="res://Assets/Untitled_Artwork-7.png" id="13_rp4qs"]
+[ext_resource type="Texture2D" uid="uid://b37ser62muygn" path="res://Assets/Untitled_Artwork-8.png" id="14_rhl3w"]
+[ext_resource type="Texture2D" uid="uid://ccnjbgddmwfvj" path="res://Assets/Untitled_Artwork-9.png" id="15_bun23"]
+[ext_resource type="Texture2D" uid="uid://swbhgiy3nm8h" path="res://Assets/Untitled_Artwork-10.png" id="16_gtthi"]
+[ext_resource type="Texture2D" uid="uid://bixhbs4ylfgkl" path="res://Assets/Untitled_Artwork-11.png" id="17_mnkyj"]
+[ext_resource type="Texture2D" uid="uid://c2yjo0gnrtw5d" path="res://Assets/Untitled_Artwork-12.png" id="18_fif40"]
+[ext_resource type="Texture2D" uid="uid://drggjwd4s0mk4" path="res://Assets/Untitled_Artwork-13.png" id="19_6xgc5"]
+[ext_resource type="Texture2D" uid="uid://be2w2o2fw5lj3" path="res://Assets/Untitled_Artwork-14.png" id="20_0vv3x"]
+[ext_resource type="Texture2D" uid="uid://dt4g42wpc0bml" path="res://Assets/Untitled_Artwork-15.png" id="21_fsfaj"]
+[ext_resource type="Script" uid="uid://bwxw8k6df0yj7" path="res://animated_sprite_2d_2.gd" id="22_yktx5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fvag4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_bah7m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_eu7l1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 3.0,
+"texture": ExtResource("1_eu7l1")
+}, {
+"duration": 10.0,
+"texture": ExtResource("5_fv4w7")
+}],
+"loop": false,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_p1v5b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_wygdx")
+}],
+"loop": true,
+"name": &"talk",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_88f54"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_6xgc5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_5j71u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_jyqkj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ydbc3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_aj1ai")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_d7dfr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_c2gv2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_rp4qs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_rhl3w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_bun23")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_gtthi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_mnkyj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_fif40")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_6xgc5")
+}],
+"loop": false,
+"name": &"reveal",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20_0vv3x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_fsfaj")
+}],
+"loop": true,
+"name": &"talk",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Alleyway-in-seattle-washington" type="Sprite2D" parent="."]
+position = Vector2(630, 32)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_jyqkj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(927, 485)
+sprite_frames = SubResource("SpriteFrames_fvag4")
+animation = &"talk"
+autoplay = "default"
+script = ExtResource("6_p1v5b")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(321, 498)
+sprite_frames = SubResource("SpriteFrames_88f54")
+animation = &"reveal"
+script = ExtResource("22_yktx5")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="AnimatedSprite2D" method="_on_animation_finished"]
