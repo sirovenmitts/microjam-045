@@ -1,0 +1,83 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmbr55tfyppg0"]
+
+[ext_resource type="Script" uid="uid://cx2xhvfymltrs" path="res://chat_box.gd" id="1_nfenn"]
+[ext_resource type="Texture2D" uid="uid://qdvjj7h3c5sa" path="res://Assets/Untitled_Artwork-1 2.png" id="1_pe5ko"]
+[ext_resource type="FontFile" uid="uid://7xxg0tpxymew" path="res://helvetica_punk/Helvetica Punk.ttf" id="2_hmvqt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nfenn"]
+bg_color = Color(0.462639, 0.758435, 0.595986, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.133151, 0.661338, 0.840429, 1)
+border_blend = true
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 1
+shadow_offset = Vector2(16, 16)
+
+[node name="Control" type="Control"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 192.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+script = ExtResource("1_nfenn")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 160.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 16
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_nfenn")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Container" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_direction = 3
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/PanelContainer/MarginContainer/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/PanelContainer/MarginContainer/Container/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_hmvqt")
+theme_override_font_sizes/normal_font_size = 48
+bbcode_enabled = true
+text = "Hey, can I $gamble$ here? I need to get rid of some size... stat!"
+fit_content = true
+horizontal_alignment = 2
+
+[node name="Control" type="CenterContainer" parent="MarginContainer/PanelContainer/MarginContainer/Container"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/Container/Control"]
+layout_mode = 2
+texture = ExtResource("1_pe5ko")
+stretch_mode = 5

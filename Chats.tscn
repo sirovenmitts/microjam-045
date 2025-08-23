@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://dn1j1atebwsyy"]
+
+[ext_resource type="Script" uid="uid://1ydfu5k8ux1b" path="res://chats.gd" id="1_xp3ol"]
+[ext_resource type="Texture2D" uid="uid://yv81jmvrlw3c" path="res://Assets/alleyway-in-seattle-washington.jpg" id="2_xp3ol"]
+
+[node name="Control" type="Control" node_paths=PackedStringArray("chats")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xp3ol")
+chats = NodePath("MarginContainer/ScrollContainer/Chats")
+
+[node name="Alleyway-in-seattle-washington" type="Sprite2D" parent="."]
+position = Vector2(64, 128)
+texture = ExtResource("2_xp3ol")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Chats" type="VBoxContainer" parent="MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 10
+theme_override_constants/separation = 16
