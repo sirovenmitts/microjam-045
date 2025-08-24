@@ -10,6 +10,7 @@ extends Control
 @onready var make_choice_scene = preload("res://scenes/make_choice/make_choice.tscn")
 @onready var play_skuds_scene = preload("res://scenes/play_skuds/play_skuds.tscn")
 @onready var exit_chat = preload("res://scenes/exit_chat/exit_chat.tscn")
+@onready var guess_the_number = preload("res://scenes/guess_the_number/guess_the_number.tscn")
 
 var score = 0
 var bet = 0
@@ -75,4 +76,9 @@ func play_skuds() -> void:
 	var scene = play_skuds_scene.instantiate()
 	add(scene)
 	score = await scene.finished
+
+func play_guess_the_numbers() -> void:
+	var scene = guess_the_number.instantiate() as GuessTheNumber
+	add(scene)
+	var did_win = await scene.game_over
 	

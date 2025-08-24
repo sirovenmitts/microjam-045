@@ -9,7 +9,5 @@ func _physics_process(delta: float) -> void:
 	flumbus.move_and_slide()
 
 func _on_start_chat(chat: DialogueResource) -> void:
-	var scene = chat_scene.instantiate() as Chat
-	scene.chat = chat
-	get_tree().root.add_child(scene)
-	get_tree().root.remove_child(self)
+	pass
+	# GameWorld.start_chat(chat)

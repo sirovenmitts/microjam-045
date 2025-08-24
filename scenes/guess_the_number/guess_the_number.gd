@@ -1,9 +1,8 @@
+class_name GuessTheNumber
 extends Control
 
 signal game_over(won: bool)
 signal number_input
-
-@export var chat: DialogueResource
 
 @onready var input_form = %InputForm
 @onready var your_number_input = %YourNumberInput
@@ -58,3 +57,8 @@ func _on_button_pressed() -> void:
 	your_number = your_number_input.value
 	input_form.hide()
 	make_guess()
+
+
+func _on_content_resized() -> void:
+	custom_minimum_size.y = $MarginContainer.size.y
+	size.y = $MarginContainer.size.y

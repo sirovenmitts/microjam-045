@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dmbr55tfyppg0"]
 
 [ext_resource type="Script" uid="uid://cx2xhvfymltrs" path="res://scenes/chat_bubble/chat_bubble.gd" id="1_nfenn"]
-[ext_resource type="Texture2D" uid="uid://qdvjj7h3c5sa" path="res://assets/gfx/Untitled_Artwork-1 2.png" id="1_pe5ko"]
+[ext_resource type="Texture2D" uid="uid://qdvjj7h3c5sa" path="res://assets/gfx/flumbus/Untitled_Artwork-1 2.png" id="1_pe5ko"]
 [ext_resource type="FontFile" uid="uid://buh2230ttaa7h" path="res://assets/fonts/corrupted_file/Corrupted File.ttf" id="2_gu3ds"]
 [ext_resource type="Script" uid="uid://g32um0mltv5d" path="res://addons/dialogue_manager/dialogue_label.gd" id="3_q4t3s"]
 

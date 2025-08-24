@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://djaswitfijfw5"]
+
+[ext_resource type="Script" uid="uid://bex06udg2cd58" path="res://game_world.gd" id="1_bvgre"]
+[ext_resource type="Shader" uid="uid://coxpdmqsycy7" path="res://half_tone_transition.gdshader" id="1_hly68"]
+[ext_resource type="PackedScene" uid="uid://wbpnmlbd241c" path="res://scenes/gambling_town/gambling_town.tscn" id="2_ea1x0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s45dl"]
+shader = ExtResource("1_hly68")
+shader_parameter/TransparentDot = false
+shader_parameter/AspectRatio = 1.5
+shader_parameter/Dots = 10.0
+shader_parameter/_min = 0.0
+shader_parameter/_max = 1.0
+shader_parameter/height = 0.0
+
+[node name="GameWorld" type="Node2D"]
+script = ExtResource("1_bvgre")
+
+[node name="CurrentScene" type="Node2D" parent="."]
+
+[node name="GamblingTown" parent="CurrentScene" instance=ExtResource("2_ea1x0")]
+
+[node name="Curtain" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_s45dl")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1024.0
+offset_bottom = 768.0
+grow_horizontal = 2
+grow_vertical = 2

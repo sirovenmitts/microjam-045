@@ -1,0 +1,118 @@
+[gd_scene load_steps=17 format=3 uid="uid://cqimcheiduxmb"]
+
+[ext_resource type="Texture2D" uid="uid://d4pie2dflyp4" path="res://assets/gfx/warmbo/Untitled_Artwork-1.png" id="1_810h5"]
+[ext_resource type="Texture2D" uid="uid://b73goggc32rci" path="res://assets/gfx/warmbo/Untitled_Artwork-2.png" id="2_3y6vd"]
+[ext_resource type="Texture2D" uid="uid://6blymqt5rejv" path="res://assets/gfx/warmbo/Untitled_Artwork-3.png" id="3_jwg66"]
+[ext_resource type="Texture2D" uid="uid://b8ybdjixd72ly" path="res://assets/gfx/warmbo/Untitled_Artwork-4.png" id="4_05qty"]
+[ext_resource type="Texture2D" uid="uid://by5j4we3ncjm8" path="res://assets/gfx/warmbo/Untitled_Artwork-5.png" id="5_oltx3"]
+[ext_resource type="Texture2D" uid="uid://d2a807386efjw" path="res://assets/gfx/warmbo/Untitled_Artwork-6.png" id="6_yo5dx"]
+[ext_resource type="Texture2D" uid="uid://dxah6b5ef10ln" path="res://assets/gfx/warmbo/Untitled_Artwork-7.png" id="7_wgag7"]
+[ext_resource type="Texture2D" uid="uid://dsc3j000b60jj" path="res://assets/gfx/warmbo/Untitled_Artwork-8.png" id="8_svvhd"]
+[ext_resource type="Texture2D" uid="uid://dgk5vem73yl33" path="res://assets/gfx/warmbo/Untitled_Artwork-9.png" id="9_xsk82"]
+[ext_resource type="Texture2D" uid="uid://dvma0mi08tulr" path="res://assets/gfx/warmbo/Untitled_Artwork-10.png" id="10_myb2k"]
+[ext_resource type="Texture2D" uid="uid://cqc5popgd3bjp" path="res://assets/gfx/warmbo/Untitled_Artwork-11.png" id="11_akw3x"]
+[ext_resource type="Script" uid="uid://dloq1ksy1doqe" path="res://objects/warmbo/warmbo.gd" id="12_nxewi"]
+[ext_resource type="Resource" uid="uid://bm1e6ihbol25y" path="res://chats/warmbo.dialogue" id="13_a1720"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pca4u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_810h5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_810h5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_3y6vd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_jwg66")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_05qty")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_oltx3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_yo5dx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_wgag7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_svvhd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_xsk82")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_myb2k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_akw3x")
+}],
+"loop": false,
+"name": &"reveal",
+"speed": 15.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i0ia8"]
+radius = 128.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_luyn1"]
+size = Vector2(98, 47)
+
+[node name="Warmbo" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_pca4u")
+autoplay = "default"
+script = ExtResource("12_nxewi")
+chat = ExtResource("13_a1720")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+show_behind_parent = true
+position = Vector2(-622, -99)
+color = Color(0.129412, 0.129412, 0.129412, 0.313726)
+polygon = PackedVector2Array(614, 143, 589, 150, 589, 165, 616, 168, 645, 164, 660, 155, 648, 144)
+
+[node name="Interact" type="Area2D" parent="."]
+
+[node name="Collider" type="CollisionShape2D" parent="Interact"]
+shape = SubResource("CircleShape2D_i0ia8")
+
+[node name="Physics" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Physics"]
+position = Vector2(-5, 33)
+shape = SubResource("RectangleShape2D_luyn1")
+
+[node name="UI" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -128.0
+offset_top = -64.0
+offset_right = 64.0
+rotation = -0.303687
+
+[node name="Center" type="CenterContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Chat" type="Button" parent="UI/Center"]
+layout_mode = 2
+text = "Chat with Warmbo"
+
+[connection signal="area_entered" from="Interact" to="." method="_on_interact_area_entered"]
+[connection signal="area_exited" from="Interact" to="." method="_on_interact_area_exited"]
+[connection signal="pressed" from="UI/Center/Chat" to="." method="_on_chat_pressed"]
