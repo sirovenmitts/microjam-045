@@ -1,0 +1,20 @@
+~ start
+do start_game()
+You, who has so little knowledge in the ways of numbers. I am thinking of a number between {{my_number_min}} and {{my_number_max}}. What could it possibly be? Eh? Care to test yourself? [wait=3]
+=> take_turn
+
+~ take_turn
+What do you think my number is?
+do show_input_form()
+if my_number == your_number
+	Ahh, good! You are a natural => END!
+else
+	match attempts
+		when 1
+			Hmm. Good try, but {{your_number}} isn't right. Try again.
+		when < 3
+			% Blast the perfidious nature of the elusive number. Nay.
+			% Quite close. Maybe. But maybe not. Still, how is one to know? Try again.
+		else
+			Ahh. Good try. Now grow, my gluttonous grimshaw. => END!
+=> END

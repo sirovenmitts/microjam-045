@@ -10,3 +10,13 @@ The rules are easy:
 	3 The player with the highest score loses that amount of size
 	4 The player with the lowest score gains that amount of size
 	5 When your size is down to 0.1 you can enter the Thimble Nubbin
+
+
+Ringo
+	Pig
+Warmbo
+	Guess the number
+PipPip
+	Pachinko
+Blurns
+	Slot machine

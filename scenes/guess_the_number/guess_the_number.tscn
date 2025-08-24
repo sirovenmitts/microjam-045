@@ -1,0 +1,77 @@
+[gd_scene load_steps=4 format=3 uid="uid://bljfetfllidhi"]
+
+[ext_resource type="Script" uid="uid://cij11k688rq8j" path="res://scenes/guess_the_number/guess_the_number.gd" id="1_esjt0"]
+[ext_resource type="Resource" uid="uid://0bmbkx4q1gt" path="res://chats/guess_the_number.dialogue" id="2_7rfuu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nfenn"]
+bg_color = Color(0.462639, 0.758435, 0.595986, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.133151, 0.661338, 0.840429, 1)
+border_blend = true
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 1
+shadow_offset = Vector2(16, 16)
+
+[node name="GuessTheNumber" type="Control"]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+script = ExtResource("1_esjt0")
+chat = ExtResource("2_7rfuu")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 115.0
+grow_horizontal = 2
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_nfenn")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Container" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Dialogue" type="RichTextLabel" parent="MarginContainer/PanelContainer/MarginContainer/Container"]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+text = "You, who has so little knowledge in the ways of numbers. I am thinking of a number between 1 and 100. What could it possibly be? Eh? Care to test yourself?"
+fit_content = true
+
+[node name="InputForm" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/Container"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="YourNumberInput" type="SpinBox" parent="MarginContainer/PanelContainer/MarginContainer/Container/InputForm"]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 1.0
+value = 1.0
+rounded = true
+
+[node name="Submit" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/Container/InputForm"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "This is your number"
+
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/Container/InputForm/Submit" to="." method="_on_button_pressed"]

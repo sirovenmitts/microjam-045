@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://wbpnmlbd241c"]
+[gd_scene load_steps=33 format=3 uid="uid://wbpnmlbd241c"]
 
 [ext_resource type="Script" uid="uid://cwtygyf31knkd" path="res://scenes/gambling_town/gambling_town.gd" id="1_8py31"]
 [ext_resource type="Texture2D" uid="uid://qdvjj7h3c5sa" path="res://assets/gfx/Untitled_Artwork-1 2.png" id="2_8py31"]
@@ -7,7 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://ne7ac4qvbxya" path="res://assets/gfx/Untitled_Artwork-2 2.png" id="4_0j81u"]
 [ext_resource type="Texture2D" uid="uid://dvb87yv1hcm3i" path="res://assets/gfx/Untitled_Artwork-1 3.png" id="5_lgpc8"]
 [ext_resource type="Texture2D" uid="uid://b40ry71xw2dww" path="res://assets/gfx/Untitled_Artwork-2 3.png" id="6_0j81u"]
+[ext_resource type="Script" uid="uid://d34u0hq4ktljk" path="res://scenes/gambling_town/ringo.gd" id="6_0uwha"]
 [ext_resource type="Texture2D" uid="uid://c844lt3xsxcxx" path="res://assets/gfx/Untitled_Artwork-3 3.png" id="7_luyn1"]
+[ext_resource type="Resource" uid="uid://cir23q7e41dwb" path="res://chats/intro_chat_with_ringo.dialogue" id="7_rm84w"]
 [ext_resource type="Texture2D" uid="uid://dbdgyqhqjdnu0" path="res://assets/gfx/Untitled_Artwork-4 3.png" id="8_0uwha"]
 [ext_resource type="Texture2D" uid="uid://bg4ka2y8mg4ce" path="res://assets/gfx/Untitled_Artwork-5 3.png" id="9_rm84w"]
 [ext_resource type="Texture2D" uid="uid://qmppppjmdivs" path="res://assets/gfx/Untitled_Artwork-6.png" id="10_tuddd"]
@@ -18,6 +20,8 @@
 [ext_resource type="Texture2D" uid="uid://bixhbs4ylfgkl" path="res://assets/gfx/Untitled_Artwork-11.png" id="15_xdy2y"]
 [ext_resource type="Texture2D" uid="uid://c2yjo0gnrtw5d" path="res://assets/gfx/Untitled_Artwork-12.png" id="16_hqilj"]
 [ext_resource type="Texture2D" uid="uid://drggjwd4s0mk4" path="res://assets/gfx/Untitled_Artwork-13.png" id="17_1fuor"]
+[ext_resource type="Script" uid="uid://dloq1ksy1doqe" path="res://scenes/gambling_town/warmbo.gd" id="19_luyn1"]
+[ext_resource type="Script" uid="uid://bvj81mf17s72t" path="res://scenes/gambling_town/archway.gd" id="22_tuddd"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_luyn1"]
 animations = [{
@@ -108,10 +112,16 @@ radius = 128.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_luyn1"]
 size = Vector2(98, 47)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_rm84w"]
+radius = 194.288
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tuddd"]
+radius = 55.0
+height = 316.0
+
 [node name="GamblingTown" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_8py31")
-chat_with_warmbo = ExtResource("2_i0ia8")
 metadata/_edit_lock_ = true
 
 [node name="Flumbus" type="CharacterBody2D" parent="."]
@@ -140,15 +150,23 @@ shape = SubResource("CircleShape2D_luyn1")
 [node name="Ringo" type="Sprite2D" parent="."]
 position = Vector2(0, 384)
 texture = ExtResource("3_bo7ku")
+script = ExtResource("6_0uwha")
+chat = ExtResource("7_rm84w")
 
-[node name="Body" type="Area2D" parent="Ringo"]
+[node name="Interact" type="Area2D" parent="Ringo"]
 
-[node name="Collider" type="CollisionShape2D" parent="Ringo/Body"]
+[node name="Collider" type="CollisionShape2D" parent="Ringo/Interact"]
 position = Vector2(0, 21)
 shape = SubResource("CircleShape2D_0j81u")
 
-[node name="RingoUI" type="Control" parent="Ringo"]
-unique_name_in_owner = true
+[node name="Physics" type="StaticBody2D" parent="Ringo"]
+
+[node name="Collider" type="CollisionShape2D" parent="Ringo/Physics"]
+position = Vector2(-5, 34)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_luyn1")
+
+[node name="UI" type="Control" parent="Ringo"]
 visible = false
 layout_mode = 3
 anchors_preset = 0
@@ -156,33 +174,32 @@ offset_top = 64.0
 offset_right = 40.0
 offset_bottom = 104.0
 
-[node name="ChatButton" type="Button" parent="Ringo/RingoUI"]
+[node name="Chat" type="Button" parent="Ringo/UI"]
 layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
 text = "Chat with Ringo"
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Ringo"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ringo/StaticBody2D"]
-position = Vector2(-5, 34)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_luyn1")
-
 [node name="Warmbo" type="AnimatedSprite2D" parent="."]
-unique_name_in_owner = true
 position = Vector2(399, 80)
 sprite_frames = SubResource("SpriteFrames_pca4u")
 animation = &"reveal"
 autoplay = "default"
+script = ExtResource("19_luyn1")
+chat = ExtResource("2_i0ia8")
 
-[node name="Body" type="Area2D" parent="Warmbo"]
+[node name="Interact" type="Area2D" parent="Warmbo"]
 
-[node name="Collider" type="CollisionShape2D" parent="Warmbo/Body"]
+[node name="Collider" type="CollisionShape2D" parent="Warmbo/Interact"]
 shape = SubResource("CircleShape2D_i0ia8")
 
-[node name="WarmboUi" type="Control" parent="Warmbo"]
-unique_name_in_owner = true
+[node name="Physics" type="StaticBody2D" parent="Warmbo"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Warmbo/Physics"]
+position = Vector2(-5, 33)
+shape = SubResource("RectangleShape2D_luyn1")
+
+[node name="UI" type="Control" parent="Warmbo"]
 visible = false
 layout_mode = 3
 anchors_preset = 0
@@ -191,7 +208,7 @@ offset_top = -64.0
 offset_right = 64.0
 rotation = -0.303687
 
-[node name="Center" type="CenterContainer" parent="Warmbo/WarmboUi"]
+[node name="Center" type="CenterContainer" parent="Warmbo/UI"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -199,23 +216,61 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ChatButton" type="Button" parent="Warmbo/WarmboUi/Center"]
+[node name="Chat" type="Button" parent="Warmbo/UI/Center"]
 layout_mode = 2
 text = "Chat with Warmbo"
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Warmbo"]
+[node name="Archway" type="Node2D" parent="."]
+position = Vector2(1185, 169)
+script = ExtResource("22_tuddd")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Warmbo/StaticBody2D"]
-position = Vector2(-5, 33)
-shape = SubResource("RectangleShape2D_luyn1")
+[node name="Interact" type="Area2D" parent="Archway"]
 
-[connection signal="area_entered" from="Ringo/Body" to="." method="_on_start_chatting_with_ringo"]
-[connection signal="area_exited" from="Ringo/Body" to="." method="_on_stop_chatting_with_ringo"]
-[connection signal="body_entered" from="Ringo/Body" to="." method="_on_start_chatting_with_ringo"]
-[connection signal="body_exited" from="Ringo/Body" to="." method="_on_stop_chatting_with_ringo"]
-[connection signal="pressed" from="Ringo/RingoUI/ChatButton" to="." method="_on_chat_with_ringo_pressed"]
-[connection signal="area_entered" from="Warmbo/Body" to="." method="_on_start_chatting_with_warmbo"]
-[connection signal="area_exited" from="Warmbo/Body" to="." method="_on_stop_chatting_with_warmbo"]
-[connection signal="body_entered" from="Warmbo/Body" to="." method="_on_start_chatting_with_warmbo"]
-[connection signal="body_exited" from="Warmbo/Body" to="." method="_on_stop_chatting_with_warmbo"]
-[connection signal="pressed" from="Warmbo/WarmboUi/Center/ChatButton" to="." method="_on_chat_with_warmbo_pressed"]
+[node name="Collider" type="CollisionShape2D" parent="Archway/Interact"]
+shape = SubResource("CircleShape2D_rm84w")
+
+[node name="Physics" type="StaticBody2D" parent="Archway"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Archway/Physics"]
+shape = SubResource("CapsuleShape2D_tuddd")
+
+[node name="UI" type="Control" parent="Archway"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -123.0
+offset_top = -140.0
+offset_right = 154.0
+offset_bottom = 151.0
+
+[node name="Container" type="VBoxContainer" parent="Archway/UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Archway/UI/Container"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "... a way out?"
+
+[node name="Button" type="Button" parent="Archway/UI/Container"]
+layout_mode = 2
+text = "Test the archway of the Thimble Nub"
+
+[node name="PipPip" type="Node2D" parent="."]
+
+[node name="Blurns" type="Node2D" parent="."]
+
+[connection signal="start_chat" from="Ringo" to="." method="_on_start_chat"]
+[connection signal="area_entered" from="Ringo/Interact" to="Ringo" method="_on_interact_area_entered"]
+[connection signal="area_exited" from="Ringo/Interact" to="Ringo" method="_on_interact_area_exited"]
+[connection signal="pressed" from="Ringo/UI/Chat" to="Ringo" method="_on_chat_pressed"]
+[connection signal="start_chat" from="Warmbo" to="." method="_on_start_chat"]
+[connection signal="area_entered" from="Warmbo/Interact" to="Warmbo" method="_on_interact_area_entered"]
+[connection signal="area_exited" from="Warmbo/Interact" to="Warmbo" method="_on_interact_area_exited"]
+[connection signal="pressed" from="Warmbo/UI/Center/Chat" to="Warmbo" method="_on_chat_pressed"]
+[connection signal="area_entered" from="Archway/Interact" to="Archway" method="_on_interact_area_entered"]
+[connection signal="area_exited" from="Archway/Interact" to="Archway" method="_on_interact_area_exited"]
