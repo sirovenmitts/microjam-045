@@ -1,0 +1,8 @@
+~ start
+Warmbo: Pulsating waves of nausea. What do you want?
+- Gamble?
+	Warmbo: No. [sleep(3)] Yes. I know numbers. Do you wish to worship at the alter of the uncaring, unceasing torment?
+	do play_warmbos_query()
+- Nothing. Nevermind
+	Warmbo: Good night, sweet prince. => END!
+=> END
