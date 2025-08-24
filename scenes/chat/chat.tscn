@@ -1,9 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://dn1j1atebwsyy"]
+[gd_scene load_steps=8 format=3 uid="uid://dn1j1atebwsyy"]
 
 [ext_resource type="Script" uid="uid://1ydfu5k8ux1b" path="res://scenes/chat/chat.gd" id="1_xp3ol"]
+[ext_resource type="PackedScene" uid="uid://d1qj1f5o6m1r3" path="res://chat_bubbles/chat_heading/chat_heading.tscn" id="2_3pou3"]
 [ext_resource type="PackedScene" uid="uid://b64ohx7llvmgw" path="res://scenes/exit_chat/exit_chat.tscn" id="2_r67cr"]
+[ext_resource type="PackedScene" uid="uid://dmbr55tfyppg0" path="res://chat_bubbles/chat_bubble/chat_bubble.tscn" id="3_iwpxv"]
+[ext_resource type="PackedScene" uid="uid://dna08h7lkre1c" path="res://mini_games/play_skuds/play_skuds.tscn" id="3_xe7gi"]
+[ext_resource type="PackedScene" uid="uid://c3rkhi2famchm" path="res://chat_bubbles/make_bet/make_bet.tscn" id="4_guykx"]
+[ext_resource type="PackedScene" uid="uid://cbkv6myy5jmqe" path="res://chat_bubbles/make_choice/make_choice.tscn" id="5_rad44"]
 
-[node name="Chat" type="Control" node_paths=PackedStringArray("chats")]
+[node name="Chat" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,7 +16,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xp3ol")
-chats = NodePath("MarginContainer/ScrollContainer/Chats")
+chat_heading = ExtResource("2_3pou3")
+chat_box = ExtResource("3_iwpxv")
+make_bet_scene = ExtResource("4_guykx")
+make_choice_scene = ExtResource("5_rad44")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -32,10 +40,11 @@ layout_mode = 2
 horizontal_scroll_mode = 0
 
 [node name="Chats" type="VBoxContainer" parent="MarginContainer/ScrollContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 10
-theme_override_constants/separation = 16
+theme_override_constants/separation = 8
 alignment = 2
 
 [node name="Exit" parent="." instance=ExtResource("2_r67cr")]
@@ -50,6 +59,10 @@ offset_left = 384.0
 offset_top = 256.0
 offset_right = 384.0
 offset_bottom = 256.0
+
+[node name="PlaySkuds" parent="." instance=ExtResource("3_xe7gi")]
+visible = false
+layout_mode = 1
 
 [connection signal="resized" from="MarginContainer" to="." method="_on_margin_container_resized"]
 [connection signal="resized" from="MarginContainer/ScrollContainer/Chats" to="." method="_on_chats_resized"]

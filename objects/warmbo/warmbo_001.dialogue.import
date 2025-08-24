@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bm1e6ihbol25y"
+path="res://.godot/imported/warmbo_001.dialogue-a75018d693ec2c093eb4162ecb48a6f2.tres"
+
+[deps]
+
+source_file="res://objects/warmbo/warmbo_001.dialogue"
+dest_files=["res://.godot/imported/warmbo_001.dialogue-a75018d693ec2c093eb4162ecb48a6f2.tres"]
+
+[params]
+
+defaults=true

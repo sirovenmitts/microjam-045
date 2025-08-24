@@ -1,0 +1,85 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://bdq8p6yncabg1"]
+
+[ext_resource type="FontFile" uid="uid://buh2230ttaa7h" path="res://assets/fonts/corrupted_file/Corrupted File.ttf" id="1_4mcf0"]
+[ext_resource type="FontFile" uid="uid://7xxg0tpxymew" path="res://assets/fonts/helvetica_punk/Helvetica Punk.ttf" id="1_on8kb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_on8kb"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7ufym"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gfu4w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cycib"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bveq5"]
+
+[resource]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_disabled_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0.980392, 0.470588, 0.980392, 1)
+Button/colors/font_hover_color = Color(0.980392, 0.470588, 0.980392, 1)
+Button/colors/font_hover_pressed_color = Color(0.772998, 0.0467737, 0.785688, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0.772549, 0.0470588, 0.784314, 1)
+Button/constants/align_to_largest_stylebox = 0
+Button/constants/h_separation = 0
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 48
+Button/fonts/font = ExtResource("1_on8kb")
+Button/styles/disabled = SubResource("StyleBoxFlat_on8kb")
+Button/styles/focus = SubResource("StyleBoxEmpty_7ufym")
+Button/styles/hover = SubResource("StyleBoxEmpty_gfu4w")
+Button/styles/normal = SubResource("StyleBoxEmpty_cycib")
+Button/styles/pressed = SubResource("StyleBoxEmpty_bveq5")
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 1)
+Label/constants/line_spacing = 0
+Label/constants/outline_size = 0
+Label/constants/shadow_offset_x = 0
+Label/constants/shadow_offset_y = 0
+Label/constants/shadow_outline_size = 0
+Label/font_sizes/font_size = 32
+Label/fonts/font = ExtResource("1_4mcf0")
+Label/styles/normal = null
+RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/font_selected_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/font_shadow_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/selection_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/table_border = Color(0, 0, 0, 1)
+RichTextLabel/colors/table_even_row_bg = Color(0, 0, 0, 1)
+RichTextLabel/colors/table_odd_row_bg = Color(0, 0, 0, 1)
+RichTextLabel/constants/line_separation = 16
+RichTextLabel/constants/outline_size = 0
+RichTextLabel/constants/shadow_offset_x = 0
+RichTextLabel/constants/shadow_offset_y = 0
+RichTextLabel/constants/shadow_outline_size = 0
+RichTextLabel/constants/table_h_separation = 0
+RichTextLabel/constants/table_v_separation = 0
+RichTextLabel/constants/text_highlight_h_padding = 0
+RichTextLabel/constants/text_highlight_v_padding = 0
+RichTextLabel/font_sizes/bold_font_size = 16
+RichTextLabel/font_sizes/bold_italics_font_size = 16
+RichTextLabel/font_sizes/italics_font_size = 16
+RichTextLabel/font_sizes/mono_font_size = 16
+RichTextLabel/font_sizes/normal_font_size = 32
+RichTextLabel/fonts/bold_font = null
+RichTextLabel/fonts/bold_italics_font = null
+RichTextLabel/fonts/italics_font = null
+RichTextLabel/fonts/mono_font = null
+RichTextLabel/fonts/normal_font = ExtResource("1_4mcf0")
+RichTextLabel/styles/focus = null
+RichTextLabel/styles/normal = null
+VBoxContainer/constants/separation = 16

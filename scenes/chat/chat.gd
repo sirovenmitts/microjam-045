@@ -1,17 +1,26 @@
 class_name Chat
 extends Control
 
-@export var chats: Control
+@export var chat_heading: PackedScene
+@export var chat_box: PackedScene
+@export var make_bet_scene: PackedScene
+@export var make_choice_scene: PackedScene
 
-@onready var chat_box = preload("res://scenes/chat_bubble/chat_bubble.tscn")
-@onready var make_bet_scene = preload("res://scenes/make_bet/make_bet.tscn")
-@onready var make_choice_scene = preload("res://scenes/make_choice/make_choice.tscn")
-@onready var play_skuds_scene = preload("res://scenes/play_skuds/play_skuds.tscn")
-@onready var exit_chat = preload("res://scenes/exit_chat/exit_chat.tscn")
-@onready var guess_the_number = preload("res://scenes/guess_the_number/guess_the_number.tscn")
+@onready var chats = %Chats
 
-var score = 0
+var did_bet = false
+var did_win = false
 var bet = 0
+
+var dice_my_score = 0
+var dice_my_last_roll = 0
+var dice_my_rolls = []
+
+var dice_your_score = 0
+var dice_your_last_roll = 0
+var dice_your_rolls = []
+
+var rng = RandomNumberGenerator.new()
 
 func add(child: Control):
 	chats.add_child(child)
@@ -50,31 +59,57 @@ func play_message(dialogue_line):
 func start(chat: DialogueResource):
 	var id = "start"
 	while true:
-		await get_tree().create_timer(1).timeout
 		var dialogue_line = await chat.get_next_dialogue_line(id, [self])
 		if not dialogue_line: break
 		id = await play_message(dialogue_line)
 		if not id:
 			break
-	$Exit.show()
-	$Exit.grab_focus()
-	await $Exit.finished
-	$Exit.hide()
+	await get_tree().create_timer(1).timeout
+	return [did_bet, did_win]
+	
 
 func make_bet() -> void:
 	var scene = make_bet_scene.instantiate()
 	add(scene)
 	bet = await scene.finished
+	did_bet = true
 
-func play_skuds() -> void:
-	var scene = play_skuds_scene.instantiate()
-	add(scene)
-	score = await scene.finished
+func dice_start():
+	dice_my_score = 0
+	dice_my_last_roll = 0
+	dice_your_score = 0
+	dice_your_last_roll = 0
+
+func dice_end():
+	var values = [1, 2, 3, 4, 5, 6]
+	var weights = PackedFloat32Array([1.1, 2, 2, 0.5, 0.1, 0.1])
+	for i in range(0, randi_range(1, dice_your_rolls.size())):
+		dice_my_last_roll = values[rng.rand_weighted(weights)]
+		dice_my_rolls.append(dice_my_last_roll)
+		if dice_my_last_roll == 1:
+			dice_my_score = 0
+			did_win = true
+			break
+		else:
+			dice_my_score += dice_my_last_roll
+	did_win = dice_your_score >= dice_my_score
+
+func dice_roll():
+	var values = [1, 2, 3, 4, 5, 6]
+	var weights = PackedFloat32Array([Globals.horrible_luck, 1, 1, 1, 1, 1])
+	dice_your_last_roll = values[rng.rand_weighted(weights)]
+	dice_your_rolls.append(dice_your_last_roll)
+	if dice_your_last_roll == 1:
+		dice_your_score = 0
+		did_win = false
+	else:
+		dice_your_score += dice_your_last_roll
 
 func play_guess_the_numbers() -> void:
-	var scene = guess_the_number.instantiate() as GuessTheNumber
-	add(scene)
-	var did_win = await scene.game_over
+	#var scene = guess_the_number.instantiate() as GuessTheNumber
+	#add(scene)
+	#var did_win = await scene.game_over
+	pass
 
 func _on_chats_resized() -> void:
 	_update_scroll_container_size.call_deferred()

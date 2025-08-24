@@ -1,27 +1,27 @@
-[gd_scene load_steps=33 format=3 uid="uid://wbpnmlbd241c"]
+[gd_scene load_steps=31 format=3 uid="uid://wbpnmlbd241c"]
 
 [ext_resource type="Script" uid="uid://cwtygyf31knkd" path="res://scenes/gambling_town/gambling_town.gd" id="1_8py31"]
 [ext_resource type="Texture2D" uid="uid://qdvjj7h3c5sa" path="res://assets/gfx/flumbus/Untitled_Artwork-1 2.png" id="2_8py31"]
-[ext_resource type="Texture2D" uid="uid://dt4g42wpc0bml" path="res://assets/gfx/ringo/Untitled_Artwork-15.png" id="3_bo7ku"]
+[ext_resource type="Texture2D" uid="uid://ryfpspfab28e" path="res://Untitled_Artwork.jpg" id="2_npekr"]
 [ext_resource type="Texture2D" uid="uid://ne7ac4qvbxya" path="res://assets/gfx/flumbus/Untitled_Artwork-2 2.png" id="4_0j81u"]
-[ext_resource type="Texture2D" uid="uid://dvb87yv1hcm3i" path="res://assets/gfx/ringo/Untitled_Artwork-1 3.png" id="5_r1rb3"]
-[ext_resource type="Script" uid="uid://d34u0hq4ktljk" path="res://scenes/gambling_town/ringo.gd" id="6_0uwha"]
-[ext_resource type="Texture2D" uid="uid://b40ry71xw2dww" path="res://assets/gfx/ringo/Untitled_Artwork-2 3.png" id="6_gl14f"]
-[ext_resource type="Texture2D" uid="uid://c844lt3xsxcxx" path="res://assets/gfx/ringo/Untitled_Artwork-3 3.png" id="7_2mecs"]
-[ext_resource type="Resource" uid="uid://cir23q7e41dwb" path="res://chats/intro_chat_with_ringo.dialogue" id="7_rm84w"]
-[ext_resource type="Texture2D" uid="uid://dbdgyqhqjdnu0" path="res://assets/gfx/ringo/Untitled_Artwork-4 3.png" id="8_reqes"]
-[ext_resource type="Texture2D" uid="uid://bg4ka2y8mg4ce" path="res://assets/gfx/ringo/Untitled_Artwork-5 3.png" id="9_xxgn7"]
-[ext_resource type="Texture2D" uid="uid://qmppppjmdivs" path="res://assets/gfx/ringo/Untitled_Artwork-6.png" id="10_lrlmi"]
-[ext_resource type="Texture2D" uid="uid://dcoppjexwvyna" path="res://assets/gfx/ringo/Untitled_Artwork-7.png" id="11_2ishw"]
-[ext_resource type="Texture2D" uid="uid://b37ser62muygn" path="res://assets/gfx/ringo/Untitled_Artwork-8.png" id="12_slw8e"]
-[ext_resource type="Texture2D" uid="uid://ccnjbgddmwfvj" path="res://assets/gfx/ringo/Untitled_Artwork-9.png" id="13_5xio1"]
-[ext_resource type="Texture2D" uid="uid://swbhgiy3nm8h" path="res://assets/gfx/ringo/Untitled_Artwork-10.png" id="14_oui1v"]
-[ext_resource type="Texture2D" uid="uid://bixhbs4ylfgkl" path="res://assets/gfx/ringo/Untitled_Artwork-11.png" id="15_de70h"]
-[ext_resource type="Texture2D" uid="uid://c2yjo0gnrtw5d" path="res://assets/gfx/ringo/Untitled_Artwork-12.png" id="16_ciu8l"]
-[ext_resource type="Texture2D" uid="uid://drggjwd4s0mk4" path="res://assets/gfx/ringo/Untitled_Artwork-13.png" id="17_jqeuh"]
-[ext_resource type="Texture2D" uid="uid://be2w2o2fw5lj3" path="res://assets/gfx/ringo/Untitled_Artwork-14.png" id="18_6s3ad"]
+[ext_resource type="PackedScene" uid="uid://g0cgr88ugwl2" path="res://objects/ringo/ringo.tscn" id="5_xai0g"]
+[ext_resource type="Texture2D" uid="uid://1dskgo473chj" path="res://assets/gfx/portal/Untitled_Artwork-1.png" id="9_k6shx"]
+[ext_resource type="Texture2D" uid="uid://chbrrmglqqp3x" path="res://assets/gfx/portal/Untitled_Artwork-2.png" id="10_tc5fg"]
+[ext_resource type="Texture2D" uid="uid://begko5lwe5go6" path="res://assets/gfx/portal/Untitled_Artwork-3.png" id="11_ro00u"]
+[ext_resource type="Texture2D" uid="uid://bjk5vg12jrlgn" path="res://assets/gfx/portal/Untitled_Artwork-4.png" id="12_xdy2y"]
+[ext_resource type="Texture2D" uid="uid://bsto7cf2bm0t6" path="res://assets/gfx/portal/Untitled_Artwork-5.png" id="13_hqilj"]
+[ext_resource type="Texture2D" uid="uid://b687g0bubds6g" path="res://assets/gfx/portal/Untitled_Artwork-6.png" id="14_1fuor"]
+[ext_resource type="Texture2D" uid="uid://de1muqitmrog0" path="res://assets/gfx/portal/Untitled_Artwork-7.png" id="15_pca4u"]
+[ext_resource type="Texture2D" uid="uid://1ddnp1potinb" path="res://assets/gfx/portal/Untitled_Artwork-8.png" id="16_repcb"]
+[ext_resource type="Texture2D" uid="uid://bqbj7o1h02vvi" path="res://assets/gfx/portal/Untitled_Artwork-9.png" id="17_2qufg"]
+[ext_resource type="Texture2D" uid="uid://uhmld6km0bo3" path="res://assets/gfx/portal/Untitled_Artwork-10.png" id="18_r1rb3"]
+[ext_resource type="Texture2D" uid="uid://cvpft208cisps" path="res://assets/gfx/portal/Untitled_Artwork-11.png" id="19_gl14f"]
+[ext_resource type="Texture2D" uid="uid://gcqc7qsjn07x" path="res://assets/gfx/portal/Untitled_Artwork-12.png" id="20_2mecs"]
 [ext_resource type="PackedScene" uid="uid://cqimcheiduxmb" path="res://objects/warmbo/warmbo.tscn" id="20_rm84w"]
+[ext_resource type="Texture2D" uid="uid://d0oafd11jd7ep" path="res://assets/gfx/portal/Untitled_Artwork-13.png" id="21_reqes"]
 [ext_resource type="Script" uid="uid://bvj81mf17s72t" path="res://scenes/gambling_town/archway.gd" id="22_tuddd"]
+[ext_resource type="Texture2D" uid="uid://cs2kiqs152xey" path="res://assets/gfx/portal/Untitled_Artwork-14.png" id="22_xxgn7"]
+[ext_resource type="Texture2D" uid="uid://drfuqnmihmcnr" path="res://assets/gfx/portal/Untitled_Artwork-15.png" id="23_lrlmi"]
 [ext_resource type="PackedScene" uid="uid://dn1j1atebwsyy" path="res://scenes/chat/chat.tscn" id="23_q3ssi"]
 [ext_resource type="PackedScene" uid="uid://ct2b3lih07xrw" path="res://objects/pip_pip/pip_pip.tscn" id="24_k6shx"]
 
@@ -46,66 +46,6 @@ height = 99.9999
 [sub_resource type="CircleShape2D" id="CircleShape2D_luyn1"]
 radius = 89.2749
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_0j81u"]
-radius = 125.064
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_luyn1"]
-radius = 20.0
-height = 92.0
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ppg8m"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_r1rb3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_gl14f")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_2mecs")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_reqes")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_xxgn7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_lrlmi")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_2ishw")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_slw8e")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_5xio1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("14_oui1v")
-}, {
-"duration": 1.0,
-"texture": ExtResource("15_de70h")
-}, {
-"duration": 1.0,
-"texture": ExtResource("16_ciu8l")
-}, {
-"duration": 1.0,
-"texture": ExtResource("17_jqeuh")
-}, {
-"duration": 1.0,
-"texture": ExtResource("18_6s3ad")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_bo7ku")
-}],
-"loop": false,
-"name": &"default",
-"speed": 15.0
-}]
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_rm84w"]
 radius = 194.288
 
@@ -113,94 +53,122 @@ radius = 194.288
 radius = 55.0
 height = 316.0
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_2ishw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_k6shx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_tc5fg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ro00u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_xdy2y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_hqilj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_1fuor")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_pca4u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_repcb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_2qufg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_r1rb3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_gl14f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_2mecs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_reqes")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_xxgn7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_lrlmi")
+}],
+"loop": false,
+"name": &"default",
+"speed": 30.0
+}]
+
 [node name="GamblingTown" type="Node2D"]
-y_sort_enabled = true
 script = ExtResource("1_8py31")
 metadata/_edit_lock_ = true
 
-[node name="Flumbus" type="CharacterBody2D" parent="."]
+[node name="UntitledArtwork" type="Sprite2D" parent="."]
+position = Vector2(512, 256)
+texture = ExtResource("2_npekr")
+
+[node name="Objects" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Flumbus" type="CharacterBody2D" parent="Objects"]
+unique_name_in_owner = true
 position = Vector2(512, 384)
 motion_mode = 1
 
-[node name="Sprite" type="AnimatedSprite2D" parent="Flumbus"]
+[node name="Sprite" type="AnimatedSprite2D" parent="Objects/Flumbus"]
 sprite_frames = SubResource("SpriteFrames_luyn1")
 autoplay = "default"
 
-[node name="Collider" type="CollisionShape2D" parent="Flumbus"]
+[node name="Collider" type="CollisionShape2D" parent="Objects/Flumbus"]
 position = Vector2(5, 54)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_0j81u")
 
-[node name="Camera" type="Camera2D" parent="Flumbus"]
+[node name="Camera" type="Camera2D" parent="Objects/Flumbus"]
 process_callback = 0
 editor_draw_limits = true
 editor_draw_drag_margin = true
 
-[node name="Area2D" type="Area2D" parent="Flumbus"]
+[node name="Area2D" type="Area2D" parent="Objects/Flumbus"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Flumbus/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Flumbus/Area2D"]
 shape = SubResource("CircleShape2D_luyn1")
 
-[node name="Chat" parent="Flumbus" instance=ExtResource("23_q3ssi")]
+[node name="Chat" parent="Objects/Flumbus" instance=ExtResource("23_q3ssi")]
 unique_name_in_owner = true
 offset_left = -512.0
 offset_top = -384.0
 offset_right = 512.0
 offset_bottom = 384.0
 
-[node name="Ringo" type="Node2D" parent="."]
-position = Vector2(76, 133)
-script = ExtResource("6_0uwha")
-chat = ExtResource("7_rm84w")
+[node name="Ringo" parent="Objects" instance=ExtResource("5_xai0g")]
+position = Vector2(128, 0)
 
-[node name="Interact" type="Area2D" parent="Ringo"]
+[node name="Warmbo" parent="Objects" instance=ExtResource("20_rm84w")]
+position = Vector2(896, 0)
 
-[node name="Collider" type="CollisionShape2D" parent="Ringo/Interact"]
-shape = SubResource("CircleShape2D_0j81u")
-
-[node name="Physics" type="StaticBody2D" parent="Ringo"]
-
-[node name="Collider" type="CollisionShape2D" parent="Ringo/Physics"]
-position = Vector2(-4, 33)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_luyn1")
-
-[node name="Sprite" type="AnimatedSprite2D" parent="Ringo"]
-sprite_frames = SubResource("SpriteFrames_ppg8m")
-
-[node name="UI" type="Control" parent="Ringo"]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_left = -65.0
-offset_top = 57.0
-offset_right = -25.0
-offset_bottom = 97.0
-
-[node name="Chat" type="Button" parent="Ringo/UI"]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-text = "Chat with Ringo"
-
-[node name="Warmbo" parent="." instance=ExtResource("20_rm84w")]
-position = Vector2(684, 95)
-
-[node name="Archway" type="Node2D" parent="."]
+[node name="Archway" type="Node2D" parent="Objects"]
 position = Vector2(1185, 169)
 script = ExtResource("22_tuddd")
 
-[node name="Interact" type="Area2D" parent="Archway"]
+[node name="Interact" type="Area2D" parent="Objects/Archway"]
 
-[node name="Collider" type="CollisionShape2D" parent="Archway/Interact"]
+[node name="Collider" type="CollisionShape2D" parent="Objects/Archway/Interact"]
 shape = SubResource("CircleShape2D_rm84w")
 
-[node name="Physics" type="StaticBody2D" parent="Archway"]
+[node name="Physics" type="StaticBody2D" parent="Objects/Archway"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Archway/Physics"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Archway/Physics"]
 shape = SubResource("CapsuleShape2D_tuddd")
 
-[node name="UI" type="Control" parent="Archway"]
+[node name="UI" type="Control" parent="Objects/Archway"]
 visible = false
 layout_mode = 3
 anchors_preset = 0
@@ -209,7 +177,7 @@ offset_top = -140.0
 offset_right = 154.0
 offset_bottom = 151.0
 
-[node name="Container" type="VBoxContainer" parent="Archway/UI"]
+[node name="Container" type="VBoxContainer" parent="Objects/Archway/UI"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -217,25 +185,25 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Archway/UI/Container"]
+[node name="Label" type="Label" parent="Objects/Archway/UI/Container"]
 layout_mode = 2
 size_flags_vertical = 6
 text = "... a way out?"
 
-[node name="Button" type="Button" parent="Archway/UI/Container"]
+[node name="Button" type="Button" parent="Objects/Archway/UI/Container"]
 layout_mode = 2
 text = "Test the archway of the Thimble Nub"
 
-[node name="PipPip" parent="." instance=ExtResource("24_k6shx")]
-position = Vector2(410, 95)
+[node name="Sprite" type="AnimatedSprite2D" parent="Objects/Archway"]
+sprite_frames = SubResource("SpriteFrames_2ishw")
 
-[node name="Blurns" type="Node2D" parent="."]
+[node name="PipPip" parent="Objects" instance=ExtResource("24_k6shx")]
+position = Vector2(512, 0)
 
-[connection signal="start_chat" from="Ringo" to="." method="_on_start_chat"]
-[connection signal="area_entered" from="Ringo/Interact" to="Ringo" method="_on_interact_area_entered"]
-[connection signal="area_exited" from="Ringo/Interact" to="Ringo" method="_on_interact_area_exited"]
-[connection signal="pressed" from="Ringo/UI/Chat" to="Ringo" method="_on_chat_pressed"]
-[connection signal="start_chat" from="Warmbo" to="." method="_on_start_chat"]
-[connection signal="area_entered" from="Archway/Interact" to="Archway" method="_on_interact_area_entered"]
-[connection signal="area_exited" from="Archway/Interact" to="Archway" method="_on_interact_area_exited"]
-[connection signal="start_chat" from="PipPip" to="." method="_on_start_chat"]
+[node name="Blurns" type="Node2D" parent="Objects"]
+
+[connection signal="start_chat" from="Objects/Ringo" to="." method="_on_start_chat"]
+[connection signal="start_chat" from="Objects/Warmbo" to="." method="_on_start_chat"]
+[connection signal="area_entered" from="Objects/Archway/Interact" to="Objects/Archway" method="_on_interact_area_entered"]
+[connection signal="area_exited" from="Objects/Archway/Interact" to="Objects/Archway" method="_on_interact_area_exited"]
+[connection signal="start_chat" from="Objects/PipPip" to="." method="_on_start_chat"]

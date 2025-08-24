@@ -1,0 +1,42 @@
+~ start
+Ringo: [[Hi|Hello|Howdy]] pardner. Lookin' to gamble some size away? Betcha wish you were as tiny as me.
+- Heck yes, my man
+	Ringo: Good on ya. Let's get gamblin'. OK, I like playing dice.
+	- Me too
+		do make_bet()
+		=> play_dice
+	- I prefer other games
+		Ringo: Well [wait=1] Alright then. Maybe another time.
+- No, I should probably skedaddle
+	Ringo: Brother, that's the saddest story I've heard in a Klep's Moon. See ya => END!
+=> END
+
+~ play_dice
+Ringo: OK, you know how to play dice, right? Well, it's easy - you roll, and add your score, until you think you've got more than me. If you roll a 1, then it's lights out, and I win!
+do dice_start()
+=> dice_roll        
+
+~ dice_roll
+Ringo: Your last roll was a {{dice_your_last_roll}}, and so far you've got {{dice_your_score}}.
+- Roll
+	do dice_roll()
+	if dice_your_last_roll == 1
+		=> instant_lose
+	else
+		=> dice_roll
+- Stick
+	do dice_end()
+	if dice_my_last_roll == 1
+		Ringo: Ahh shucks, I crashed out. Good game! => END!
+		- Ha ha! Time to shrink! => END!
+	if dice_my_score > dice_your_score
+		Ringo: I got {{dice_my_score}}, and you only got {{dice_your_score}}. Looks like I win, pal. Prepare to grow.
+		- Ah shucks => END!
+	else
+		Ringo: {{dice_your_score}}?! That's great! I only got {{dice_my_score}}
+		- Goodbye, old friend => END!
+=> END
+
+~ instant_lose
+Ringo: Better luck next time, pal
+=> END

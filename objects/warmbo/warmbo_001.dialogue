@@ -1,0 +1,11 @@
+~ start
+Warmbo: Pulsating waves of nausea. What do you want?
+- Gamble?
+	Warmbo: No. [wait=1] Yes. [wait=1] I know numbers. Do you wish to worship at the alter of the uncaring, unceasing torment?
+	- Yes
+		do make_bet()
+		do play_guess_the_numbers()
+	- No => END
+- Nothing. Nevermind
+	Warmbo: Good night, sweet prince. => END!
+=> END

@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dvma0mi08tulr" path="res://assets/gfx/warmbo/Untitled_Artwork-10.png" id="10_myb2k"]
 [ext_resource type="Texture2D" uid="uid://cqc5popgd3bjp" path="res://assets/gfx/warmbo/Untitled_Artwork-11.png" id="11_akw3x"]
 [ext_resource type="Script" uid="uid://dloq1ksy1doqe" path="res://objects/warmbo/warmbo.gd" id="12_nxewi"]
-[ext_resource type="Resource" uid="uid://bm1e6ihbol25y" path="res://chats/warmbo.dialogue" id="13_a1720"]
+[ext_resource type="Resource" uid="uid://bm1e6ihbol25y" path="res://objects/warmbo/warmbo_001.dialogue" id="13_a1720"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pca4u"]
 animations = [{
@@ -90,9 +90,8 @@ visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = -128.0
-offset_top = -64.0
-offset_right = 64.0
-rotation = -0.303687
+offset_right = 128.0
+offset_bottom = 128.0
 
 [node name="Center" type="CenterContainer" parent="UI"]
 layout_mode = 1

@@ -1,0 +1,122 @@
+[gd_scene load_steps=21 format=3 uid="uid://g0cgr88ugwl2"]
+
+[ext_resource type="Script" uid="uid://d34u0hq4ktljk" path="res://objects/ringo/ringo.gd" id="1_qx0lm"]
+[ext_resource type="Resource" uid="uid://cir23q7e41dwb" path="res://objects/ringo/ringo_001.dialogue" id="2_l53rf"]
+[ext_resource type="Texture2D" uid="uid://dvb87yv1hcm3i" path="res://assets/gfx/ringo/Untitled_Artwork-1 3.png" id="3_lm4yd"]
+[ext_resource type="Texture2D" uid="uid://b40ry71xw2dww" path="res://assets/gfx/ringo/Untitled_Artwork-2 3.png" id="4_3x257"]
+[ext_resource type="Texture2D" uid="uid://c844lt3xsxcxx" path="res://assets/gfx/ringo/Untitled_Artwork-3 3.png" id="5_gxmbe"]
+[ext_resource type="Texture2D" uid="uid://dbdgyqhqjdnu0" path="res://assets/gfx/ringo/Untitled_Artwork-4 3.png" id="6_5wy08"]
+[ext_resource type="Texture2D" uid="uid://bg4ka2y8mg4ce" path="res://assets/gfx/ringo/Untitled_Artwork-5 3.png" id="7_ajclk"]
+[ext_resource type="Texture2D" uid="uid://qmppppjmdivs" path="res://assets/gfx/ringo/Untitled_Artwork-6.png" id="8_axxa5"]
+[ext_resource type="Texture2D" uid="uid://dcoppjexwvyna" path="res://assets/gfx/ringo/Untitled_Artwork-7.png" id="9_shrdo"]
+[ext_resource type="Texture2D" uid="uid://b37ser62muygn" path="res://assets/gfx/ringo/Untitled_Artwork-8.png" id="10_l0j77"]
+[ext_resource type="Texture2D" uid="uid://ccnjbgddmwfvj" path="res://assets/gfx/ringo/Untitled_Artwork-9.png" id="11_kai8j"]
+[ext_resource type="Texture2D" uid="uid://swbhgiy3nm8h" path="res://assets/gfx/ringo/Untitled_Artwork-10.png" id="12_x7gkt"]
+[ext_resource type="Texture2D" uid="uid://bixhbs4ylfgkl" path="res://assets/gfx/ringo/Untitled_Artwork-11.png" id="13_6wa0r"]
+[ext_resource type="Texture2D" uid="uid://c2yjo0gnrtw5d" path="res://assets/gfx/ringo/Untitled_Artwork-12.png" id="14_ltbbl"]
+[ext_resource type="Texture2D" uid="uid://drggjwd4s0mk4" path="res://assets/gfx/ringo/Untitled_Artwork-13.png" id="15_tww1c"]
+[ext_resource type="Texture2D" uid="uid://be2w2o2fw5lj3" path="res://assets/gfx/ringo/Untitled_Artwork-14.png" id="16_sgqnw"]
+[ext_resource type="Texture2D" uid="uid://dt4g42wpc0bml" path="res://assets/gfx/ringo/Untitled_Artwork-15.png" id="17_1sf5r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0j81u"]
+radius = 125.064
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_luyn1"]
+radius = 20.0
+height = 92.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ppg8m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_lm4yd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3x257")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_gxmbe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wy08")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ajclk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_axxa5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_shrdo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_l0j77")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_kai8j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_x7gkt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_6wa0r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ltbbl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_tww1c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_sgqnw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_1sf5r")
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="Ringo" type="Node2D"]
+script = ExtResource("1_qx0lm")
+chat = ExtResource("2_l53rf")
+
+[node name="Interact" type="Area2D" parent="."]
+
+[node name="Collider" type="CollisionShape2D" parent="Interact"]
+shape = SubResource("CircleShape2D_0j81u")
+
+[node name="Physics" type="StaticBody2D" parent="."]
+
+[node name="Collider" type="CollisionShape2D" parent="Physics"]
+position = Vector2(-4, 33)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_luyn1")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ppg8m")
+
+[node name="UI" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -128.0
+offset_right = 128.0
+offset_bottom = 128.0
+
+[node name="Center" type="CenterContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Chat" type="Button" parent="UI/Center"]
+layout_mode = 2
+text = "Chat with Ringo"
+
+[connection signal="area_entered" from="Interact" to="." method="_on_interact_area_entered"]
+[connection signal="area_exited" from="Interact" to="." method="_on_interact_area_exited"]
+[connection signal="pressed" from="UI/Center/Chat" to="." method="_on_chat_pressed"]

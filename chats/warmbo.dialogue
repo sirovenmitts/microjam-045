@@ -1,8 +1,0 @@
-~ start
-Warmbo: Pulsating waves of nausea. What do you want?
-- Gamble?
-	Warmbo: No. [wait=3] Yes. I know numbers. Do you wish to worship at the alter of the uncaring, unceasing torment?
-	do play_guess_the_numbers()
-- Nothing. Nevermind
-	Warmbo: Good night, sweet prince. => END!
-=> END

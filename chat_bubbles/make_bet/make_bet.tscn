@@ -1,0 +1,73 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3rkhi2famchm"]
+
+[ext_resource type="Script" uid="uid://c0ayk4c2itf5v" path="res://chat_bubbles/make_bet/make_bet.gd" id="1_2cgly"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+script = ExtResource("1_2cgly")
+
+[node name="Ui" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 115.0
+grow_horizontal = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Ui"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Ui/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="MainUi" type="VBoxContainer" parent="Ui/PanelContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Ui/PanelContainer/MarginContainer/MainUi"]
+layout_mode = 2
+bbcode_enabled = true
+text = "How much size are you willing to risk?"
+fit_content = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Ui/PanelContainer/MarginContainer/MainUi"]
+layout_mode = 2
+
+[node name="Small" type="Button" parent="Ui/PanelContainer/MarginContainer/MainUi/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Very little"
+
+[node name="Medium" type="Button" parent="Ui/PanelContainer/MarginContainer/MainUi/VBoxContainer"]
+layout_mode = 2
+text = "Some"
+
+[node name="Large" type="Button" parent="Ui/PanelContainer/MarginContainer/MainUi/VBoxContainer"]
+layout_mode = 2
+text = "A tremendous amount"
+
+[node name="ConfirmUi" type="VBoxContainer" parent="Ui/PanelContainer/MarginContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Ui/PanelContainer/MarginContainer/ConfirmUi"]
+layout_mode = 2
+text = "Very well."
+fit_content = true
+horizontal_alignment = 1
+
+[connection signal="resized" from="Ui" to="." method="_on_ui_resized"]
+[connection signal="pressed" from="Ui/PanelContainer/MarginContainer/MainUi/VBoxContainer/Small" to="." method="_on_small_pressed"]
+[connection signal="pressed" from="Ui/PanelContainer/MarginContainer/MainUi/VBoxContainer/Medium" to="." method="_on_medium_pressed"]
+[connection signal="pressed" from="Ui/PanelContainer/MarginContainer/MainUi/VBoxContainer/Large" to="." method="_on_large_pressed"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=3 uid="uid://ct2b3lih07xrw"]
 
-[ext_resource type="Script" uid="uid://dgikhsur6dq8o" path="res://scenes/gambling_town/pip_pip.gd" id="1_ccq6b"]
-[ext_resource type="Resource" uid="uid://ds26l7yqegx2n" path="res://objects/pip_pip/chat_001.dialogue" id="2_imqm5"]
+[ext_resource type="Script" uid="uid://dgikhsur6dq8o" path="res://objects/pip_pip/pip_pip.gd" id="1_ccq6b"]
+[ext_resource type="Resource" uid="uid://ds26l7yqegx2n" path="res://objects/pip_pip/pip_pip_001.dialogue" id="2_imqm5"]
 [ext_resource type="Texture2D" uid="uid://b4njyfq54orqi" path="res://assets/gfx/pip_pip/Untitled_Artwork-1.png" id="2_syxnd"]
 [ext_resource type="Texture2D" uid="uid://bmiorlxpl4s5k" path="res://assets/gfx/pip_pip/Untitled_Artwork-2.png" id="3_imqm5"]
 [ext_resource type="Texture2D" uid="uid://cpkddn4yt3ivw" path="res://assets/gfx/pip_pip/Untitled_Artwork-3.png" id="4_v2fi8"]
@@ -97,17 +97,22 @@ shape = SubResource("CapsuleShape2D_luyn1")
 visible = false
 layout_mode = 3
 anchors_preset = 0
-offset_left = -65.0
-offset_top = 57.0
-offset_right = -25.0
-offset_bottom = 97.0
+offset_left = -128.0
+offset_right = 128.0
+offset_bottom = 128.0
 
-[node name="Chat" type="Button" parent="UI"]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+[node name="Center" type="CenterContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Chat" type="Button" parent="UI/Center"]
+layout_mode = 2
 text = "Chat with Pip Pip"
 
 [connection signal="area_entered" from="Interact" to="." method="_on_interact_area_entered"]
 [connection signal="area_exited" from="Interact" to="." method="_on_interact_area_exited"]
-[connection signal="pressed" from="UI/Chat" to="." method="_on_chat_pressed"]
+[connection signal="pressed" from="UI/Center/Chat" to="." method="_on_chat_pressed"]

@@ -1,0 +1,292 @@
+[gd_scene load_steps=39 format=3 uid="uid://dna08h7lkre1c"]
+
+[ext_resource type="Script" uid="uid://dersph6njjc3x" path="res://mini_games/play_skuds/play_skuds.gd" id="1_mof3e"]
+[ext_resource type="Texture2D" uid="uid://dckswmoswvjxg" path="res://assets/gfx/abstractbackgrounds/1.png" id="2_16ctg"]
+[ext_resource type="Texture2D" uid="uid://dtxbew8wthh7i" path="res://assets/gfx/NapoleonsDice/01.png" id="2_on40k"]
+[ext_resource type="Texture2D" uid="uid://dncx2umi6ve7a" path="res://assets/gfx/NapoleonsDice/02.png" id="3_km3ax"]
+[ext_resource type="Texture2D" uid="uid://drrltdputxwup" path="res://assets/gfx/NapoleonsDice/03.png" id="4_13lvd"]
+[ext_resource type="Texture2D" uid="uid://2y1ks0r1bck5" path="res://assets/gfx/NapoleonsDice/04.png" id="5_13kl6"]
+[ext_resource type="Texture2D" uid="uid://dstlebhelw34t" path="res://assets/gfx/NapoleonsDice/05.png" id="6_2dpwf"]
+[ext_resource type="Texture2D" uid="uid://cfms3a6muuuqf" path="res://assets/gfx/NapoleonsDice/06.png" id="7_lmig5"]
+[ext_resource type="Texture2D" uid="uid://pmc1y7iaekbf" path="res://assets/gfx/NapoleonsDice/07.png" id="8_4cke2"]
+[ext_resource type="Texture2D" uid="uid://cleuy8ctr4eqn" path="res://assets/gfx/NapoleonsDice/08.png" id="9_8beri"]
+[ext_resource type="Texture2D" uid="uid://dqy3d3jse1pr7" path="res://assets/gfx/NapoleonsDice/09.png" id="10_omxl7"]
+[ext_resource type="Texture2D" uid="uid://dnpcdn3uwwtct" path="res://assets/gfx/NapoleonsDice/10.png" id="11_8m1wq"]
+[ext_resource type="Texture2D" uid="uid://su7dsro14csv" path="res://assets/gfx/NapoleonsDice/11.png" id="12_uhfvx"]
+[ext_resource type="Texture2D" uid="uid://ve83u817vdyf" path="res://assets/gfx/NapoleonsDice/12.png" id="13_51n3e"]
+[ext_resource type="Texture2D" uid="uid://bnca0ujm2ndpo" path="res://assets/gfx/NapoleonsDice/13.png" id="14_i11dj"]
+[ext_resource type="Texture2D" uid="uid://c6vkgatdpo0ic" path="res://assets/gfx/NapoleonsDice/14.png" id="15_l5tt2"]
+[ext_resource type="Texture2D" uid="uid://bj2skinodi4y6" path="res://assets/gfx/NapoleonsDice/15.png" id="16_ba21c"]
+[ext_resource type="Texture2D" uid="uid://bxogmtdnamxr3" path="res://assets/gfx/NapoleonsDice/16.png" id="17_kejky"]
+[ext_resource type="Texture2D" uid="uid://bqqsu33lm8x8e" path="res://assets/gfx/NapoleonsDice/17.png" id="18_he00k"]
+[ext_resource type="Texture2D" uid="uid://bfp53c1lfhlyk" path="res://assets/gfx/NapoleonsDice/18.png" id="19_a6q5s"]
+[ext_resource type="Texture2D" uid="uid://byevqtolkqnlk" path="res://assets/gfx/NapoleonsDice/19.png" id="20_phgmv"]
+[ext_resource type="Texture2D" uid="uid://lo32q1e4lxcd" path="res://assets/gfx/NapoleonsDice/20.png" id="21_ryfs4"]
+[ext_resource type="Texture2D" uid="uid://btvk4o0rrvour" path="res://assets/gfx/NapoleonsDice/21.png" id="22_5oign"]
+[ext_resource type="Texture2D" uid="uid://cho6jqr4lacfc" path="res://assets/gfx/NapoleonsDice/22.png" id="23_166g0"]
+[ext_resource type="Texture2D" uid="uid://b18r1i11g17ps" path="res://assets/gfx/NapoleonsDice/23.png" id="24_f467h"]
+[ext_resource type="Texture2D" uid="uid://13dypbnmube5" path="res://assets/gfx/NapoleonsDice/24.png" id="25_y4i2c"]
+[ext_resource type="Texture2D" uid="uid://cjhhtxj2w7t6a" path="res://assets/gfx/NapoleonsDice/25.png" id="26_kwdux"]
+[ext_resource type="Texture2D" uid="uid://cheo47g2xs7ja" path="res://assets/gfx/NapoleonsDice/26.png" id="27_2g738"]
+[ext_resource type="Texture2D" uid="uid://cmfeglvq16yic" path="res://assets/gfx/NapoleonsDice/27.png" id="28_5lmfq"]
+[ext_resource type="Texture2D" uid="uid://ca221x1d2xl8w" path="res://assets/gfx/NapoleonsDice/28.png" id="29_qv4wb"]
+[ext_resource type="Texture2D" uid="uid://cqtxe0ffeyoed" path="res://assets/gfx/NapoleonsDice/29.png" id="30_pape7"]
+[ext_resource type="Texture2D" uid="uid://cpmbd0xif0k4e" path="res://assets/gfx/NapoleonsDice/30.png" id="31_lghuu"]
+[ext_resource type="Texture2D" uid="uid://bd8dw71c32l0v" path="res://assets/gfx/NapoleonsDice/31.png" id="32_wrdvw"]
+[ext_resource type="Texture2D" uid="uid://1mvljkmfe27v" path="res://assets/gfx/NapoleonsDice/32.png" id="33_0bxly"]
+[ext_resource type="Texture2D" uid="uid://dfjupk0nmdff0" path="res://assets/gfx/NapoleonsDice/diceOne.png" id="35_d65td"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nfenn"]
+bg_color = Color(0.462639, 0.758435, 0.595986, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.133151, 0.661338, 0.840429, 1)
+border_blend = true
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 1
+shadow_offset = Vector2(16, 16)
+
+[sub_resource type="Curve2D" id="Curve2D_7qh3e"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1152, -64, 0, 0, 0, 0, 960, 0, 0, 0, 0, 0, 832, 128, 0, 0, 0, 0, 768, 0, 0, 0, 0, 0, 576, -64, 0, 0, 0, 0, 384, 0, 0, 0, 0, 0, 320, 128, 0, 0, 0, 0, 256, 0, 0, 0, 0, 0, 128, -64, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -64, 128, 0, 0, 0, 0, -256, -64)
+}
+point_count = 12
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_miorl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_on40k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_km3ax")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_13lvd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_13kl6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_2dpwf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_lmig5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_4cke2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_8beri")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_omxl7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_8m1wq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_uhfvx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_51n3e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_i11dj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_l5tt2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_ba21c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_kejky")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_he00k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_a6q5s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_phgmv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_ryfs4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_5oign")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_166g0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_f467h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_y4i2c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_kwdux")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_2g738")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_5lmfq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_qv4wb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_pape7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_lghuu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_wrdvw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_0bxly")
+}],
+"loop": true,
+"name": &"default",
+"speed": 60.0
+}]
+
+[node name="PlaySkuds" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_mof3e")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_16ctg")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_nfenn")
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="GameUI" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer/PanelContainer/MarginContainer/GameUI"]
+layout_mode = 2
+text = "Roll some skuds to see if you can get a high score. Stick when you want, but be warned, roll a 1 and you LOSE IMMEDIATELY! I'll roll as well, and we will compare scores."
+fit_content = true
+
+[node name="Points" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/GameUI"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "0"
+horizontal_alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/GameUI"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Roll" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/GameUI/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+text = "    Roll    "
+
+[node name="Stick" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/GameUI/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "    Stick    "
+
+[node name="PostGame" type="CenterContainer" parent="CenterContainer/PanelContainer/MarginContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/PostGame"]
+layout_mode = 2
+text = "Final score: "
+
+[node name="Points2" type="Label" parent="."]
+layout_mode = 2
+offset_left = 220.0
+offset_top = 136.0
+offset_right = 545.0
+offset_bottom = 181.0
+rotation = -0.077276
+scale = Vector2(1.72121, 1.72121)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 72
+text = "SKUDS"
+horizontal_alignment = 1
+
+[node name="DiePath" type="Path2D" parent="."]
+position = Vector2(64, 320)
+curve = SubResource("Curve2D_7qh3e")
+
+[node name="Follow" type="PathFollow2D" parent="DiePath"]
+position = Vector2(1152, -64)
+rotation = 2.81984
+
+[node name="Die" type="AnimatedSprite2D" parent="DiePath/Follow"]
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_miorl")
+autoplay = "default"
+frame_progress = 0.106109
+
+[node name="DiceIndicator" type="CPUParticles2D" parent="."]
+position = Vector2(512, 0)
+emitting = false
+amount = 200
+texture = ExtResource("35_d65td")
+one_shot = true
+emission_shape = 3
+emission_rect_extents = Vector2(512, 1)
+direction = Vector2(0, 1)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 1000.0
+initial_velocity_max = 2000.0
+angular_velocity_min = 10.0
+angular_velocity_max = 100.0
+angle_max = 180.0
+scale_amount_min = 0.1
+scale_amount_max = 0.1
+
+[connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/GameUI/Buttons/Roll" to="." method="_on_roll_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/GameUI/Buttons/Stick" to="." method="_on_stick_pressed"]
