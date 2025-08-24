@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://wbpnmlbd241c"]
+
+[ext_resource type="Script" uid="uid://cwtygyf31knkd" path="res://scenes/gambling_town/gambling_town.gd" id="1_8py31"]
+[ext_resource type="Texture2D" uid="uid://qdvjj7h3c5sa" path="res://assets/gfx/Untitled_Artwork-1 2.png" id="2_8py31"]
+[ext_resource type="Texture2D" uid="uid://dt4g42wpc0bml" path="res://assets/gfx/Untitled_Artwork-15.png" id="3_bo7ku"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bo7ku"]
+radius = 128.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i0ia8"]
+size = Vector2(192, 256)
+
+[node name="GamblingTown" type="Node2D"]
+script = ExtResource("1_8py31")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(-192, 64)
+color = Color(0.767762, 0.742642, 0.6523, 1)
+polygon = PackedVector2Array(-256, 448, -256, 1344, 2880, 1344, 2880, -896, 896, -896, 896, -1344, -640, -1344, -640, -1088, 448, -1088, 448, -896, 256, -896, 256, -576, -832, -576, -832, -64, -1088, 128, -896, 384, -640, 192, -640, 448)
+
+[node name="Flumbus" type="Sprite2D" parent="."]
+texture = ExtResource("2_8py31")
+
+[node name="Camera2D" type="Camera2D" parent="Flumbus"]
+position_smoothing_enabled = true
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="Body" type="Area2D" parent="Flumbus"]
+
+[node name="Collider" type="CollisionShape2D" parent="Flumbus/Body"]
+shape = SubResource("CircleShape2D_bo7ku")
+
+[node name="Ringo" type="Sprite2D" parent="."]
+position = Vector2(-704, -1152)
+texture = ExtResource("3_bo7ku")
+
+[node name="Body" type="Area2D" parent="Ringo"]
+
+[node name="Collider" type="CollisionShape2D" parent="Ringo/Body"]
+position = Vector2(160, 0)
+shape = SubResource("RectangleShape2D_i0ia8")
+
+[node name="RingoUI" type="Control" parent="Ringo"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_top = 64.0
+offset_right = 40.0
+offset_bottom = 104.0
+
+[node name="ChatWithRingo" type="Button" parent="Ringo/RingoUI"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Chat with Ringo"
+
+[connection signal="area_entered" from="Ringo/Body" to="." method="_on_start_chatting_with_ringo"]
+[connection signal="area_exited" from="Ringo/Body" to="." method="_on_stop_chatting_with_ringo"]
+[connection signal="pressed" from="Ringo/RingoUI/ChatWithRingo" to="." method="_on_chat_with_ringo_pressed"]

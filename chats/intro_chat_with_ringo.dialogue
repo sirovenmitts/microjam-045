@@ -1,0 +1,14 @@
+~ start
+Ringo: [[Hi|Hello|Howdy]] pardner. Lookin' to gamble some size away? Betcha wish you were as tiny as me.
+- Heck yes, my man
+	Ringo: Good on ya. Let's get gamblin'. OK, I like playing Skuds.
+	- Me too
+		do make_bet()
+		do play_skuds()
+		if score == 0
+			Ringo: Ooooh, too bad! Looks like I win!
+		else
+			Ringo: Good job, buddy. Guess I'll be stuck here a bit longer
+- No, I should probably skedaddle
+	Ringo: Brother, that's the saddest story I've heard in a Klep's Moon. See ya => END
+=> END
