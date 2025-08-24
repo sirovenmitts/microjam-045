@@ -1,10 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dn1j1atebwsyy"]
+[gd_scene load_steps=3 format=3 uid="uid://dn1j1atebwsyy"]
 
 [ext_resource type="Script" uid="uid://1ydfu5k8ux1b" path="res://scenes/chat/chat.gd" id="1_xp3ol"]
-[ext_resource type="Resource" uid="uid://cir23q7e41dwb" path="res://chats/intro_chat_with_ringo.dialogue" id="2_w5q75"]
-[ext_resource type="Texture2D" uid="uid://yv81jmvrlw3c" path="res://assets/gfx/alleyway-in-seattle-washington.jpg" id="2_xp3ol"]
+[ext_resource type="PackedScene" uid="uid://b64ohx7llvmgw" path="res://scenes/exit_chat/exit_chat.tscn" id="2_r67cr"]
 
-[node name="Control" type="Control" node_paths=PackedStringArray("chats")]
+[node name="Chat" type="Control" node_paths=PackedStringArray("chats")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,11 +12,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xp3ol")
 chats = NodePath("MarginContainer/ScrollContainer/Chats")
-chat = ExtResource("2_w5q75")
-
-[node name="Alleyway-in-seattle-washington" type="Sprite2D" parent="."]
-position = Vector2(320, -256)
-texture = ExtResource("2_xp3ol")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -36,7 +30,6 @@ unique_name_in_owner = true
 clip_contents = false
 layout_mode = 2
 horizontal_scroll_mode = 0
-vertical_scroll_mode = 2
 
 [node name="Chats" type="VBoxContainer" parent="MarginContainer/ScrollContainer"]
 layout_mode = 2
@@ -44,3 +37,19 @@ size_flags_horizontal = 3
 size_flags_vertical = 10
 theme_override_constants/separation = 16
 alignment = 2
+
+[node name="Exit" parent="." instance=ExtResource("2_r67cr")]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 384.0
+offset_top = 256.0
+offset_right = 384.0
+offset_bottom = 256.0
+
+[connection signal="resized" from="MarginContainer" to="." method="_on_margin_container_resized"]
+[connection signal="resized" from="MarginContainer/ScrollContainer/Chats" to="." method="_on_chats_resized"]

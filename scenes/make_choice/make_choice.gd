@@ -9,6 +9,7 @@ func make_choice(dialogue_line: DialogueLine):
 		button.text = response.text
 		button.pressed.connect(func (): respond_with.emit(response), CONNECT_ONE_SHOT)
 		%Container.add_child(button)
+	%Container.get_child(0).grab_focus()
 	return await respond_with
 
 

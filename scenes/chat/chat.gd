@@ -2,8 +2,6 @@ class_name Chat
 extends Control
 
 @export var chats: Control
-@export var chat: DialogueResource
-@export var chat_delay: float
 
 @onready var chat_box = preload("res://scenes/chat_bubble/chat_bubble.tscn")
 @onready var make_bet_scene = preload("res://scenes/make_bet/make_bet.tscn")
@@ -18,22 +16,25 @@ var bet = 0
 func add(child: Control):
 	chats.add_child(child)
 	chats.update_minimum_size()
-	update_scroll.call_deferred()
+	_update_scroll_container_size.call_deferred()
 
 func remove(child: Control):
 	chats.remove_child(child)
-	update_scroll.call_deferred()
+	_update_scroll_container_size.call_deferred()
 
-func update_scroll() :
+func _update_scroll_container_size() :
 	var max_scroll = %ScrollContainer.get_v_scroll_bar().max_value
 	%ScrollContainer.set_deferred("scroll_vertical", max_scroll)
-	
+
+func _add_chat_bubble(chat: DialogueLine):
+	var bubble = chat_box.instantiate() as ChatBox
+	add(bubble)
+	await bubble.type_out(chat)
+
 func play_message(dialogue_line):
 	match dialogue_line.type:
 		"dialogue":
-			var entry = chat_box.instantiate() as ChatBox
-			add(entry)
-			await entry.type_out(dialogue_line)
+			await _add_chat_bubble(dialogue_line)
 			return dialogue_line.next_id
 		"response":
 			var entry = make_choice_scene.instantiate() as MakeChoice
@@ -43,29 +44,22 @@ func play_message(dialogue_line):
 							
 			var line = DialogueLine.new()
 			line.text = response.text
-			line.character = "Flumbus"
-			
-			entry = chat_box.instantiate() as ChatBox
-			add(entry)
-			await entry.type_out(line)
+			await _add_chat_bubble(line)
 			return response.next_id
 
-func play_conversation(dialogue: DialogueResource):
+func start(chat: DialogueResource):
 	var id = "start"
 	while true:
 		await get_tree().create_timer(1).timeout
-		var dialogue_line = await dialogue.get_next_dialogue_line(id)
+		var dialogue_line = await chat.get_next_dialogue_line(id, [self])
 		if not dialogue_line: break
 		id = await play_message(dialogue_line)
 		if not id:
 			break
-	var scene = exit_chat.instantiate()
-	add(scene)
-	await scene.finished
-	print("Exiting!")
-
-func _ready() -> void:
-	play_conversation(chat)
+	$Exit.show()
+	$Exit.grab_focus()
+	await $Exit.finished
+	$Exit.hide()
 
 func make_bet() -> void:
 	var scene = make_bet_scene.instantiate()
@@ -81,4 +75,6 @@ func play_guess_the_numbers() -> void:
 	var scene = guess_the_number.instantiate() as GuessTheNumber
 	add(scene)
 	var did_win = await scene.game_over
-	
+
+func _on_chats_resized() -> void:
+	_update_scroll_container_size.call_deferred()

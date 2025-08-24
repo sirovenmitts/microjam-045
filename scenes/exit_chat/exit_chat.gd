@@ -4,4 +4,6 @@ signal finished
 
 func _on_button_pressed() -> void:
 	finished.emit()
-	#GameWorld.exit_chat()
+
+func _on_focus_entered() -> void:
+	$Center/Button.grab_focus()

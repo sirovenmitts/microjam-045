@@ -2,27 +2,42 @@ class_name ChatBox
 extends Control
 
 @onready var dialogue_label: DialogueLabel = %Text
+@onready var container: HBoxContainer = %Container
+@onready var sprites: CenterContainer = %Sprites
+@onready var ringo: AnimatedSprite2D = %Ringo
+@onready var margins: MarginContainer = $Margins
 
 signal finished_typing
 
 func type_out(dialogue_line: DialogueLine):
+	for child in sprites.get_children():
+		child.hide()
 	match dialogue_line.character:
 		"Ringo":
-			dialogue_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
-			%Container.layout_direction = LAYOUT_DIRECTION_RTL
-		"Flumbus":
-			dialogue_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
-			%Container.layout_direction = LAYOUT_DIRECTION_LTR
+			ringo.show()
+	
+	if dialogue_line.character:
+		dialogue_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+		container.layout_direction = LAYOUT_DIRECTION_RTL
+	else:
+		dialogue_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
+		container.layout_direction = LAYOUT_DIRECTION_LTR
 	dialogue_label.dialogue_line = dialogue_line
-	custom_minimum_size.y = $MarginContainer.size.y
-	prints("Chat box size", custom_minimum_size.y)
+	dialogue_label.type_out()
+	await dialogue_label.finished_typing
+	for child in sprites.get_children():
+		(child as AnimatedSprite2D).stop()
 
 func _ready() -> void:
-	custom_minimum_size.y = $MarginContainer.size.y
+	_update_size()
 
 func _on_text_finished_typing() -> void:
 	print("Finished typing")
 	finished_typing.emit()
 
-func _on_text_resized() -> void:
-	custom_minimum_size.y = $MarginContainer.size.y
+func _update_size() -> void:
+	print(margins)
+	if not margins: return
+	custom_minimum_size.y = margins.size.y
+	size.y = margins.size.y
+	prints(custom_minimum_size, size, margins.size)

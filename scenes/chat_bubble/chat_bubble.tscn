@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dmbr55tfyppg0"]
+[gd_scene load_steps=8 format=3 uid="uid://dmbr55tfyppg0"]
 
 [ext_resource type="Script" uid="uid://cx2xhvfymltrs" path="res://scenes/chat_bubble/chat_bubble.gd" id="1_nfenn"]
-[ext_resource type="Texture2D" uid="uid://qdvjj7h3c5sa" path="res://assets/gfx/flumbus/Untitled_Artwork-1 2.png" id="1_pe5ko"]
 [ext_resource type="FontFile" uid="uid://buh2230ttaa7h" path="res://assets/fonts/corrupted_file/Corrupted File.ttf" id="2_gu3ds"]
 [ext_resource type="Script" uid="uid://g32um0mltv5d" path="res://addons/dialogue_manager/dialogue_label.gd" id="3_q4t3s"]
+[ext_resource type="Texture2D" uid="uid://be2w2o2fw5lj3" path="res://assets/gfx/ringo/Untitled_Artwork-14.png" id="4_jnhj4"]
+[ext_resource type="Texture2D" uid="uid://dt4g42wpc0bml" path="res://assets/gfx/ringo/Untitled_Artwork-15.png" id="5_ok4u0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nfenn"]
 bg_color = Color(0.462639, 0.758435, 0.595986, 1)
@@ -17,8 +18,21 @@ shadow_color = Color(0, 0, 0, 1)
 shadow_size = 1
 shadow_offset = Vector2(16, 16)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_ylpnb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_jnhj4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ok4u0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
 [node name="ChatBubble" type="Control"]
-custom_minimum_size = Vector2(0, 200)
 layout_mode = 3
 anchors_preset = 10
 anchor_right = 1.0
@@ -27,21 +41,21 @@ size_flags_horizontal = 3
 size_flags_vertical = 0
 script = ExtResource("1_nfenn")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="Margins" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 184.0
+offset_bottom = 120.0
 grow_horizontal = 2
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="Margins"]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_nfenn")
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Margins/PanelContainer"]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_constants/margin_left = 16
@@ -49,12 +63,12 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="Container" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+[node name="Container" type="HBoxContainer" parent="Margins/PanelContainer/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="Text" type="RichTextLabel" parent="MarginContainer/PanelContainer/MarginContainer/Container"]
+[node name="Text" type="RichTextLabel" parent="Margins/PanelContainer/MarginContainer/Container"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -70,13 +84,17 @@ script = ExtResource("3_q4t3s")
 skip_pause_at_abbreviations = PackedStringArray("Mr", "Mrs", "Ms", "Dr", "etc", "eg", "ex")
 metadata/_custom_type_script = "uid://g32um0mltv5d"
 
-[node name="Control" type="CenterContainer" parent="MarginContainer/PanelContainer/MarginContainer/Container"]
+[node name="Sprites" type="CenterContainer" parent="Margins/PanelContainer/MarginContainer/Container"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_vertical = 8
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/Container/Control"]
-layout_mode = 2
-texture = ExtResource("1_pe5ko")
-stretch_mode = 5
+[node name="Ringo" type="AnimatedSprite2D" parent="Margins/PanelContainer/MarginContainer/Container/Sprites"]
+unique_name_in_owner = true
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_ylpnb")
+autoplay = "default"
+centered = false
 
-[connection signal="resized" from="MarginContainer/PanelContainer/MarginContainer/Container/Text" to="." method="_on_text_resized"]
+[connection signal="resized" from="Margins" to="." method="_update_size"]

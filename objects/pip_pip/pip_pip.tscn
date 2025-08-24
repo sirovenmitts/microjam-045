@@ -1,0 +1,113 @@
+[gd_scene load_steps=20 format=3 uid="uid://ct2b3lih07xrw"]
+
+[ext_resource type="Script" uid="uid://dgikhsur6dq8o" path="res://scenes/gambling_town/pip_pip.gd" id="1_ccq6b"]
+[ext_resource type="Resource" uid="uid://ds26l7yqegx2n" path="res://objects/pip_pip/chat_001.dialogue" id="2_imqm5"]
+[ext_resource type="Texture2D" uid="uid://b4njyfq54orqi" path="res://assets/gfx/pip_pip/Untitled_Artwork-1.png" id="2_syxnd"]
+[ext_resource type="Texture2D" uid="uid://bmiorlxpl4s5k" path="res://assets/gfx/pip_pip/Untitled_Artwork-2.png" id="3_imqm5"]
+[ext_resource type="Texture2D" uid="uid://cpkddn4yt3ivw" path="res://assets/gfx/pip_pip/Untitled_Artwork-3.png" id="4_v2fi8"]
+[ext_resource type="Texture2D" uid="uid://wlm5f484oy1g" path="res://assets/gfx/pip_pip/Untitled_Artwork-4.png" id="5_snrmp"]
+[ext_resource type="Texture2D" uid="uid://phn5rs2uq1n0" path="res://assets/gfx/pip_pip/Untitled_Artwork-5.png" id="6_1qkga"]
+[ext_resource type="Texture2D" uid="uid://mrsj7k3b13px" path="res://assets/gfx/pip_pip/Untitled_Artwork-6.png" id="7_e54c8"]
+[ext_resource type="Texture2D" uid="uid://ovu7bhhg3vkr" path="res://assets/gfx/pip_pip/Untitled_Artwork-7.png" id="8_eix4g"]
+[ext_resource type="Texture2D" uid="uid://76ipvqvo6t21" path="res://assets/gfx/pip_pip/Untitled_Artwork-8.png" id="9_bx83y"]
+[ext_resource type="Texture2D" uid="uid://bxvxtw6qhd4ib" path="res://assets/gfx/pip_pip/Untitled_Artwork-9.png" id="10_n7oxp"]
+[ext_resource type="Texture2D" uid="uid://vn35y27hu6kp" path="res://assets/gfx/pip_pip/Untitled_Artwork-10.png" id="11_sloep"]
+[ext_resource type="Texture2D" uid="uid://b5orvbl4yjru5" path="res://assets/gfx/pip_pip/Untitled_Artwork-11.png" id="12_ykxun"]
+[ext_resource type="Texture2D" uid="uid://dfcsey8t75a7i" path="res://assets/gfx/pip_pip/Untitled_Artwork-12.png" id="13_8gc8e"]
+[ext_resource type="Texture2D" uid="uid://dmf74gc5on0wk" path="res://assets/gfx/pip_pip/Untitled_Artwork-13.png" id="14_1vxw4"]
+[ext_resource type="Texture2D" uid="uid://dlqlmwbc863we" path="res://assets/gfx/pip_pip/Untitled_Artwork-14.png" id="15_xu0j4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1xfkm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_syxnd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_imqm5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_v2fi8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_snrmp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_1qkga")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_e54c8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_eix4g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_bx83y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_n7oxp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_sloep")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ykxun")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_8gc8e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_1vxw4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_xu0j4")
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0j81u"]
+radius = 125.064
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_luyn1"]
+radius = 20.0
+height = 92.0
+
+[node name="PipPip" type="Node2D"]
+script = ExtResource("1_ccq6b")
+chat = ExtResource("2_imqm5")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1xfkm")
+
+[node name="Interact" type="Area2D" parent="."]
+
+[node name="Collider" type="CollisionShape2D" parent="Interact"]
+shape = SubResource("CircleShape2D_0j81u")
+
+[node name="Physics" type="StaticBody2D" parent="."]
+
+[node name="Collider" type="CollisionShape2D" parent="Physics"]
+position = Vector2(-4, 33)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_luyn1")
+
+[node name="UI" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -65.0
+offset_top = 57.0
+offset_right = -25.0
+offset_bottom = 97.0
+
+[node name="Chat" type="Button" parent="UI"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Chat with Pip Pip"
+
+[connection signal="area_entered" from="Interact" to="." method="_on_interact_area_entered"]
+[connection signal="area_exited" from="Interact" to="." method="_on_interact_area_exited"]
+[connection signal="pressed" from="UI/Chat" to="." method="_on_chat_pressed"]

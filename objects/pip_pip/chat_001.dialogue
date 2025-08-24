@@ -1,0 +1,11 @@
+~ start
+Pip pip: [[Hi|Hello|Howdy]], this is some dialogue.
+Pip pip: Here are some choices.
+- First one
+	Pip pip: You picked the first one.
+- Second one
+	Pip pip: You picked the second one.
+- Start again => start
+- End the conversation => END
+Pip pip: For more information see the online documentation.
+=> END

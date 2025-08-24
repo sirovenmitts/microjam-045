@@ -19,14 +19,6 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_810h5")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_810h5")
 }, {
 "duration": 1.0,
 "texture": ExtResource("2_3y6vd")
@@ -59,7 +51,7 @@ animations = [{
 "texture": ExtResource("11_akw3x")
 }],
 "loop": false,
-"name": &"reveal",
+"name": &"default",
 "speed": 15.0
 }]
 
@@ -69,13 +61,14 @@ radius = 128.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_luyn1"]
 size = Vector2(98, 47)
 
-[node name="Warmbo" type="AnimatedSprite2D"]
-sprite_frames = SubResource("SpriteFrames_pca4u")
-autoplay = "default"
+[node name="Warmbo" type="Node2D"]
 script = ExtResource("12_nxewi")
 chat = ExtResource("13_a1720")
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_pca4u")
+
+[node name="Shadow" type="Polygon2D" parent="."]
 show_behind_parent = true
 position = Vector2(-622, -99)
 color = Color(0.129412, 0.129412, 0.129412, 0.313726)

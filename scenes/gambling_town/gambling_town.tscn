@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://wbpnmlbd241c"]
+[gd_scene load_steps=33 format=3 uid="uid://wbpnmlbd241c"]
 
 [ext_resource type="Script" uid="uid://cwtygyf31knkd" path="res://scenes/gambling_town/gambling_town.gd" id="1_8py31"]
 [ext_resource type="Texture2D" uid="uid://qdvjj7h3c5sa" path="res://assets/gfx/flumbus/Untitled_Artwork-1 2.png" id="2_8py31"]
@@ -22,6 +22,8 @@
 [ext_resource type="Texture2D" uid="uid://be2w2o2fw5lj3" path="res://assets/gfx/ringo/Untitled_Artwork-14.png" id="18_6s3ad"]
 [ext_resource type="PackedScene" uid="uid://cqimcheiduxmb" path="res://objects/warmbo/warmbo.tscn" id="20_rm84w"]
 [ext_resource type="Script" uid="uid://bvj81mf17s72t" path="res://scenes/gambling_town/archway.gd" id="22_tuddd"]
+[ext_resource type="PackedScene" uid="uid://dn1j1atebwsyy" path="res://scenes/chat/chat.tscn" id="23_q3ssi"]
+[ext_resource type="PackedScene" uid="uid://ct2b3lih07xrw" path="res://objects/pip_pip/pip_pip.tscn" id="24_k6shx"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_luyn1"]
 animations = [{
@@ -129,8 +131,8 @@ position = Vector2(5, 54)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_0j81u")
 
-[node name="Camera2D" type="Camera2D" parent="Flumbus"]
-position_smoothing_enabled = true
+[node name="Camera" type="Camera2D" parent="Flumbus"]
+process_callback = 0
 editor_draw_limits = true
 editor_draw_drag_margin = true
 
@@ -138,6 +140,13 @@ editor_draw_drag_margin = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Flumbus/Area2D"]
 shape = SubResource("CircleShape2D_luyn1")
+
+[node name="Chat" parent="Flumbus" instance=ExtResource("23_q3ssi")]
+unique_name_in_owner = true
+offset_left = -512.0
+offset_top = -384.0
+offset_right = 512.0
+offset_bottom = 384.0
 
 [node name="Ringo" type="Node2D" parent="."]
 position = Vector2(76, 133)
@@ -160,6 +169,7 @@ shape = SubResource("CapsuleShape2D_luyn1")
 sprite_frames = SubResource("SpriteFrames_ppg8m")
 
 [node name="UI" type="Control" parent="Ringo"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = -65.0
@@ -216,14 +226,16 @@ text = "... a way out?"
 layout_mode = 2
 text = "Test the archway of the Thimble Nub"
 
-[node name="PipPip" type="Node2D" parent="."]
+[node name="PipPip" parent="." instance=ExtResource("24_k6shx")]
+position = Vector2(410, 95)
 
 [node name="Blurns" type="Node2D" parent="."]
 
 [connection signal="start_chat" from="Ringo" to="." method="_on_start_chat"]
 [connection signal="area_entered" from="Ringo/Interact" to="Ringo" method="_on_interact_area_entered"]
 [connection signal="area_exited" from="Ringo/Interact" to="Ringo" method="_on_interact_area_exited"]
-[connection signal="pressed" from="Ringo/UI/Chat" to="Ringo/Sprite" method="_on_chat_pressed"]
+[connection signal="pressed" from="Ringo/UI/Chat" to="Ringo" method="_on_chat_pressed"]
 [connection signal="start_chat" from="Warmbo" to="." method="_on_start_chat"]
 [connection signal="area_entered" from="Archway/Interact" to="Archway" method="_on_interact_area_entered"]
 [connection signal="area_exited" from="Archway/Interact" to="Archway" method="_on_interact_area_exited"]
+[connection signal="start_chat" from="PipPip" to="." method="_on_start_chat"]
